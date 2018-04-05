@@ -1,0 +1,8 @@
+#Build container by running:
+docker build sudo docker build -t localhost:7070/tflow:base .
+
+#To save locally
+sudo docker save localhost:7070/tflow:base -o tflowbase.tar
+
+#To load locally
+sudo docker load -i tflowbase.tar

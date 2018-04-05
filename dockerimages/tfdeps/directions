@@ -1,0 +1,8 @@
+#Build container by running:
+docker build sudo docker build -t localhost:7070/tflow:deps .
+
+#To save locally
+sudo docker save localhost:7070/tflow:deps -o tflowdeps.tar
+
+#To load locally
+sudo docker load -i tflowdeps.tar
