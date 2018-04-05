@@ -19,13 +19,14 @@ https://www.ubuntu.com/download/desktop
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 
 ### Get Packages/API's via pip and apt:
-'''sudo apt-get install python3.5
-sudo apt install python3-pip
-sudo pip3 install tensorflow
-sudo pip3 install keras
-sudo apt-get install -y libmysqlclient-dev
-sudo pip3 install mysqlclient
-'''
+| ------------------------------------------ |
+| sudo apt-get install python3.5 |
+| sudo apt install python3-pip |
+| sudo pip3 install tensorflow |
+| sudo pip3 install keras |
+| sudo apt-get install -y libmysqlclient-dev |
+| sudo pip3 install mysqlclient |
+
 
 ## How To (WIP)
 Directions on how to use the resources in this project will be added as well as a single bash script that will allow you to "press start" on this demonstration and allow you to observe and interact with this implementation.
