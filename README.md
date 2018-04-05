@@ -6,11 +6,11 @@ An example of how various technologies may be integrated to simplify machine lea
 MySQL running in a Docker container will provide the storehouse for our machine learning datasets which will allow for simple SQL commands to be used in pre-processing of our datasets. Docker will also be used to run an instance of Google TensorFlow's Tensorboard to monitor the progress of machine learning models undergoing training and validation. Machine learning models will be created in TensorFlow and Keras and then packaged into Docker containers to train. This will allow for different environments for each model without requiring configuration changes of the host, as this is done in the containers.
 
 ## Versioning Info
-Ubuntu 16.04.3
-Docker 18.03.0-ce
-Python 3.5.2
-Tensorflow 1.7
-MySQL X.Y
+###### Ubuntu 16.04.3
+###### Docker 18.03.0-ce
+###### Python 3.5.2
+###### Tensorflow 1.7
+###### MySQL X.Y
 
 ### Get Ubuntu
 https://www.ubuntu.com/download/desktop
