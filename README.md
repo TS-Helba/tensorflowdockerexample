@@ -2,7 +2,7 @@
 A simple example of how one may use Docker containers to implement machine learning with Python libraries for TensorFlow and Keras.
 
 # Technologies used:
-![alt text](https://github.com/TS-Helba/tensorflowdockerexample/mdfiles/images/techsused.png "Technologies used in this project.")
+![alt text]( https://raw.githubusercontent.com/TS-Helba/tensorflowdockerexample/master/mdfiles/images/techsused.png  "Technologies used in this project.")
 
 Versioning Info:
 Ubuntu 16.04.3
