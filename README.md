@@ -1,24 +1,30 @@
-# tensorflowdockerexample
-A simple example of how one may use Docker containers to implement machine learning with Python libraries for TensorFlow and Keras.
+# Machine Learning Simplified
+An example of how various technologies may be integrated to simplify machine learning workflows.
 
-# Technologies used:
+## Technologies used
 ![alt text]( https://raw.githubusercontent.com/TS-Helba/tensorflowdockerexample/master/mdfiles/images/techsused.png  "Technologies used in this project.")
+MySQL running in a Docker container will provide the storehouse for our machine learning datasets which will allow for simple SQL commands to be used in pre-processing of our datasets. Docker will also be used to run an instance of Google TensorFlow's Tensorboard to monitor the progress of machine learning models undergoing training and validation. Machine learning models will be created in TensorFlow and Keras and then packaged into Docker containers to train. This will allow for different environments for each model without requiring configuration changes of the host, as this is done in the containers.
 
-Versioning Info:
+## Versioning Info
 Ubuntu 16.04.3
 Docker 18.03.0-ce
 Python 3.5.2
 Tensorflow 1.7
+MySQL X.Y
 
-Get Ubuntu at:
+### Get Ubuntu at
 https://www.ubuntu.com/download/desktop
 
-Get Docker for Ubuntu at:
+### Get Docker for Ubuntu at
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 
-Python 3.5, Pip3 and Keras:
+### Python 3.5, Pip3 and Keras
 sudo apt-get install python3.5
 sudo apt install python3-pip
 sudo pip3 install tensorflow
 sudo pip3 install keras
+
+### MySQLDB
+sudo apt-get install -y libmysqlclient-dev
+sudo pip3 install mysqlclient
 
