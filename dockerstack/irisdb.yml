@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  irisdb:
+    image: mysql/mysql-server:5.7
+    deploy:
+      replicas: 1
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_DATABASE="irisdb"
+      - MYSQL_USER="tfmysql"
+      - MYSQL_PASSWORD="s0m3d0ck3rus3r"
+    volumes:
+      #- ./irisdbdata/my.cnf:/etc/my.cnf
+      - ./irisdbdata/varlib/:/var/lib/mysql/
+
+# Equivelant to:
+# sudo docker run --name irisdb -v /home/helba/gitdir/tensorflowdockerexample/dockerstack/irisdbdata/varlib/:/var/lib/mysql/ -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_DATABASE=irisdb -e MYSQL_ROOT_PASSWORD=supersecret -d -p 3306:3306 mysql/mysql-server:5.7

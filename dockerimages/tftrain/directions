@@ -1,8 +1,12 @@
 #Build container by running:
-docker build sudo docker build -t localhost:7070/tflow:deps .
+docker build sudo docker build -t localhost:7070/tflow:train .
 
 #To save locally
-sudo docker save localhost:7070/tflow:deps -o tflowdeps.tar
+sudo docker save localhost:7070/tflow:deps -o tflowtrain.tar
 
 #To load locally
-sudo docker load -i tflowdeps.tar
+sudo docker load -i tflowtrain.tar
+
+#To run
+sudo docker run -it --name train localhost:7070/tflow:train -p 3306:3306
+

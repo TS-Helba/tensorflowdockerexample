@@ -1,6 +1,6 @@
-#localhost:7070/tflow:deps
-FROM localhost:7070/tflow:base
-RUN pip3 install keras
-#MySQLdb
-RUN apt-get install -y libmysqlclient-dev
-RUN pip3 install mysqlclient
+#localhost:7070/tflow:train
+FROM localhost:7070/tflow:deps
+CMD ["mkdir","/app/buildfiles"]
+COPY buildfiles/* /app/buildfiles/
+EXPOSE 3306
+ENTRYPOINT ["python3", "/app/buildfiles/tftrain.py"]
