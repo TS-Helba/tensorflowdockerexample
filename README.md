@@ -42,7 +42,7 @@
 ###### docker run --name irisdb -v /"ParentDirectory"/tensorflowdockerexample/persistence/irisdbdata/varlib/:/var/lib/mysql/ -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_DATABASE=irisdb -e MYSQL_ROOT_PASSWORD=supersecret -d -p 3306:3306 helba/tensorflowdockerexample:mysql-server5.7
 ###### docker start irisdb
 #### Initialize TensorBoard
-###### docker run --name tfboard -v /"ParentDirectory"/tensorflowdockerexample/persistence/tensorboardlogs/iris/:/app/ -d -p 6006:6006 helba/tensorflowdockerexample:board
+###### docker run --name tfboard -v /"ParentDirectory"/tensorflowdockerexample/persistence/tensorboardlogs/:/app/ -d -p 6006:6006 helba/tensorflowdockerexample:board
 ###### docker start tfboard
 #### Initialize PHPMyAdmin (Login: tfmysql - s0m3d0ck3rus3r)
 ###### docker run -p 8080:80 --link irisdb:db --name mysqladmin -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_ROOT_PASSWORD=supersecret -e PMA_PORTS=3306 -e PMA_HOSTS=irisdb -d helba/tensorflowdockerexample:phpmyadmin4.7
@@ -52,6 +52,8 @@
 ###### docker start irisloader
 #### Train your model
 ###### docker run -it -v /"ParentDirectory"/tensorflowdockerexample/persistence/tensorboardlogs/iris/:/app/logs/ helba/tensorflowdockerexample:train -p 3306:3306
+##Additional Notes
+####An altered MNIST implementation borrowed from Keras examples is included under the persistence folder which will run on the host instead of in a container but its log data will populate in our TensorBoard container.
 
 
 
