@@ -27,6 +27,7 @@
 #### https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 
 ### Get Packages/API's via pip and apt:
+#### Note that these are not required if you plan to only use containers.
 ###### sudo apt-get install python3.5
 ###### sudo apt install python3-pip
 ###### sudo pip3 install tensorflow
