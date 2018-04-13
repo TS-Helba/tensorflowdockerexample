@@ -5,6 +5,13 @@ An example of how various technologies may be integrated to simplify machine lea
 ## Utilized Technologies
 MySQL running in a Docker container will provide the storehouse for our machine learning datasets which will allow for simple SQL commands to be used in pre-processing of our datasets. Docker will also be used to run an instance of Google TensorFlow's Tensorboard to monitor the progress of machine learning models undergoing training and validation. Machine learning models will be created in TensorFlow and Keras and then packaged into Docker containers to train. This will allow for different environments for each model without requiring configuration changes of the host, as this is done in the containers.
 
+![alt text]( https://github.com/TS-Helba/tensorflowdockerexample/raw/master/mdfiles/images/dataflowsexample.png  "Dataflows")
+## Data flows
+This shows how different containers/services in this implementation talk to one another.
+
+### Project's Docker Hub
+https://hub.docker.com/r/helba/tensorflowdockerexample/
+
 ## Versioning Info
 ###### Ubuntu 16.04.3
 ###### Docker 18.03.0-ce
@@ -18,9 +25,6 @@ https://www.ubuntu.com/download/desktop
 ### Get Docker for Ubuntu
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 
-### Project's Docker Hub
-https://hub.docker.com/r/helba/tensorflowdockerexample/
-
 ### Get Packages/API's via pip and apt:
 ###### sudo apt-get install python3.5
 ###### sudo apt install python3-pip
@@ -31,8 +35,8 @@ https://hub.docker.com/r/helba/tensorflowdockerexample/
 
 ## How To Use
 After performing a git pull of the project and installing the required packages, these steps will get you going. You will be able to access TensorBoard on port 6006 and PHPMyAdmin on port 8080 via localhost using a web browser. You can easily alter your datasets using PHPMyAdmin and observe the progress of your training by viewing TensorBoard.
-###### bash quickrun.sh
-### Operational Steps - Use docker run on first run and docker start on later runs. Make sure to replace directories where indicated by <ParentDirectory>. Alternatively use docker stop in place of docker start to bring down containers.
+Use docker run on first run and docker start on later runs. Make sure to replace directories where indicated by "<ParentDirectory>". Alternatively use docker stop in place of docker start to bring down containers.
+### Operational Steps
 #### Initialize MySQLDB.
 ###### docker run --name irisdb -v /<ParentDirectory>/tensorflowdockerexample/persistence/irisdbdata/varlib/:/var/lib/mysql/ -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_DATABASE=irisdb -e MYSQL_ROOT_PASSWORD=supersecret -d -p 3306:3306 helba/tensorflowdockerexample:mysql-server5.7
 ###### docker start irisdb
