@@ -10,7 +10,7 @@
 #### This shows how different containers/services in this implementation talk to one another.
 
 ### Project's Docker Hub
-https://hub.docker.com/r/helba/tensorflowdockerexample/
+#### https://hub.docker.com/r/helba/tensorflowdockerexample/
 
 ## Versioning Info
 ###### Ubuntu 16.04.3
@@ -20,10 +20,10 @@ https://hub.docker.com/r/helba/tensorflowdockerexample/
 ###### MySQL X.Y
 
 ### Get Ubuntu
-####https://www.ubuntu.com/download/desktop
+#### https://www.ubuntu.com/download/desktop
 
 ### Get Docker for Ubuntu
-####https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
+#### https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 
 ### Get Packages/API's via pip and apt:
 ###### sudo apt-get install python3.5
@@ -34,8 +34,8 @@ https://hub.docker.com/r/helba/tensorflowdockerexample/
 ###### sudo pip3 install mysqlclient
 
 ## How To Use
-####After performing a git pull of the project and installing the required packages, these steps will get you going. You will be able to access TensorBoard on port 6006 and PHPMyAdmin on port 8080 via localhost using a web browser. You can easily alter your datasets using PHPMyAdmin and observe the progress of your training by viewing TensorBoard.
-#####Use docker run on first run and docker start on later runs. Make sure to replace directories where indicated by "ParentDirectory". Alternatively use docker stop in place of docker start to bring down containers.
+#### After performing a git pull of the project and installing the required packages, these steps will get you going. You will be able to access TensorBoard on port 6006 and PHPMyAdmin on port 8080 via localhost using a web browser. You can easily alter your datasets using PHPMyAdmin and observe the progress of your training by viewing TensorBoard.
+##### Use docker run on first run and docker start on later runs. Make sure to replace directories where indicated by "ParentDirectory". Alternatively use docker stop in place of docker start to bring down containers.
 ### Operational Steps
 #### Initialize MySQLDB.
 ###### docker run --name irisdb -v /<ParentDirectory>/tensorflowdockerexample/persistence/irisdbdata/varlib/:/var/lib/mysql/ -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_DATABASE=irisdb -e MYSQL_ROOT_PASSWORD=supersecret -d -p 3306:3306 helba/tensorflowdockerexample:mysql-server5.7
