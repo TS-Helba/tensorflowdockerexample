@@ -52,7 +52,7 @@
 ###### docker start irisloader
 #### Train your model
 ###### docker run -it -v /"ParentDirectory"/tensorflowdockerexample/persistence/tensorboardlogs/iris/:/app/logs/ helba/tensorflowdockerexample:train -p 3306:3306
-##Additional Notes
+## Additional Notes
 #### An altered MNIST implementation borrowed from Keras examples is included under the persistence folder which will run on the host instead of in a container but its log data will populate in our TensorBoard container.
 
 
