@@ -1,5 +1,5 @@
-#localhost:7070/tflow:deps
-FROM localhost:7070/tflow:base
+#helba/tensorflowdockerexample:deps
+FROM helba/tensorflowdockerexample:base
 RUN pip3 install keras
 #MySQLdb
 RUN apt-get install -y libmysqlclient-dev

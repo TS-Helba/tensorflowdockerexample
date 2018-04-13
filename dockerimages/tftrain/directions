@@ -1,12 +1,13 @@
 #Build container by running:
-docker build sudo docker build -t localhost:7070/tflow:train .
+docker build -t helba/tensorflowdockerexample:train .
 
 #To save locally
-sudo docker save localhost:7070/tflow:deps -o tflowtrain.tar
+docker save helba/tensorflowdockerexample:deps -o tflowtrain.tar
 
 #To load locally
-sudo docker load -i tflowtrain.tar
+docker load -i tflowtrain.tar
 
 #To run
-sudo docker run -it --name train localhost:7070/tflow:train -p 3306:3306
+docker run -it --name train helba/tensorflowdockerexample:train -p 3306:3306
+docker run -it helba/tensorflowdockerexample:train -p 3306:3306
 

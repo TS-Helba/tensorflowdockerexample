@@ -1,8 +1,11 @@
 #Build container by running:
-sudo docker build -t localhost:7070/tflow:board .
+docker build -t helba/tensorflowdockerexample:board .
 
 #To save locally
-sudo docker save localhost:7070/tflow:board -o tflowboard.tar
+docker save helba/tensorflowdockerexample:board -o tflowboard.tar
 
 #To load locally
-sudo docker load -i tflowbase.tar
+docker load -i tflowbase.tar
+
+#Invoke TensorBoard via (With proper log directory substitution):
+docker run --name tfboard -v /<ParentDirectory>/tensorflowdockerexample/persistence/tensorboardlogs/iris/:/app/ -d -p 6006:6006 localhost:7070/tflow:board

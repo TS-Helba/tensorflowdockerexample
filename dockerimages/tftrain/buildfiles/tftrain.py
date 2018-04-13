@@ -12,9 +12,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten
 from keras.optimizers import Adam
 from keras.utils import to_categorical
+from keras.callbacks import Callback, TensorBoard
+import datetime
 import numpy as np
 
-#TODO add tensorflow checkpoint for tensorboard
 def main():
   #These values were setup in docker run command. IP can be found by running 
   #    docker inspect <container name> for db
@@ -37,6 +38,10 @@ def main():
   test_data = cursor.fetchall()
   test_data = list(test_data)
   cursor.close()
+  #Setup logging for tensorboard.
+  logging = ("./logs/" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+  tb = TensorBoard(log_dir=logging, histogram_freq=0, batch_size=32, write_graph=True, write_grads=True, write_images=True,
+      embeddings_freq=0, embeddings_layer_names=None, embeddings_metadata=None)
   #Separate X and Y's from datasets (Features from classifications)
   x_train = []
   y_train = []
@@ -65,7 +70,7 @@ def main():
 
   model.summary() #Print output of what our neural network will look like
   pause = input("Press enter to begin training...")
-  model.fit(x_train,y_train,epochs=1000) #Train and validate model
+  model.fit(x_train,y_train,epochs=1000,callbacks=[tb]) #Train and validate model
   out = model.evaluate(x_test,y_test)
 
   #Formatting for readable summary of predictions.

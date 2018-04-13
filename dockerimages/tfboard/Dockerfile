@@ -1,4 +1,4 @@
-#localhost:7070/tflow:board
-FROM localhost:7070/tflow:base
+#helba/tensorflowdockerexample:board
+FROM helba/tensorflowdockerexample:base
 EXPOSE 6006
-CMD tensorboard --logdir=/app
+ENTRYPOINT ["tensorboard", "--logdir=/app"]

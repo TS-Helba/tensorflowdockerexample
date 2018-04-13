@@ -18,6 +18,9 @@ https://www.ubuntu.com/download/desktop
 ### Get Docker for Ubuntu
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 
+### Project's Docker Hub
+https://hub.docker.com/r/helba/tensorflowdockerexample/
+
 ### Get Packages/API's via pip and apt:
 ###### sudo apt-get install python3.5
 ###### sudo apt install python3-pip
@@ -26,5 +29,29 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 ###### sudo apt-get install -y libmysqlclient-dev
 ###### sudo pip3 install mysqlclient
 
-## How To (WIP)
-Directions on how to use the resources in this project will be added as well as a single bash script that will allow you to "press start" on this demonstration and allow you to observe and interact with this implementation.
+## How To Use
+After performing a git pull of the project and installing the required packages, these steps will get you going. You will be able to access TensorBoard on port 6006 and PHPMyAdmin on port 8080 via localhost using a web browser. You can easily alter your datasets using PHPMyAdmin and observe the progress of your training by viewing TensorBoard.
+###### bash quickrun.sh
+### Operational Steps - Use docker run on first run and docker start on later runs. Make sure to replace directories where indicated by <ParentDirectory>. Alternatively use docker stop in place of docker start to bring down containers.
+#### Initialize MySQLDB.
+###### docker run --name irisdb -v /<ParentDirectory>/tensorflowdockerexample/persistence/irisdbdata/varlib/:/var/lib/mysql/ -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_DATABASE=irisdb -e MYSQL_ROOT_PASSWORD=supersecret -d -p 3306:3306 helba/tensorflowdockerexample:mysql-server5.7
+###### docker start irisdb
+#### Initialize TensorBoard
+###### docker run --name tfboard -v /<ParentDirectory>/tensorflowdockerexample/persistence/tensorboardlogs/iris/:/app/ -d -p 6006:6006 helba/tensorflowdockerexample:board
+###### docker start tfboard
+#### Initialize PHPMyAdmin (Login: tfmysql - s0m3d0ck3rus3r)
+###### docker run -p 8080:80 --link irisdb:db --name mysqladmin -e MYSQL_USER=tfmysql -e MYSQL_PASSWORD=s0m3d0ck3rus3r -e MYSQL_ROOT_PASSWORD=supersecret -e PMA_PORTS=3306 -e PMA_HOSTS=irisdb -d helba/tensorflowdockerexample:phpmyadmin4.7
+###### docker start mysqladmin
+#### Upload/ingest CSV data into database.
+###### docker run --name irisloader helba/tensorflowdockerexample:dbiris -p 3306:3306
+###### docker start irisloader
+#### Train your model
+###### docker run -it -v /<ParentDirectory>/tensorflowdockerexample/persistence/tensorboardlogs/iris/:/app/logs/ helba/tensorflowdockerexample:train -p 3306:3306
+
+
+
+
+
+
+
+

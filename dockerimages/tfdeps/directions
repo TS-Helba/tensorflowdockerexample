@@ -1,8 +1,8 @@
 #Build container by running:
-docker build sudo docker build -t localhost:7070/tflow:deps .
+docker build -t helba/tensorflowdockerexample:deps .
 
 #To save locally
-sudo docker save localhost:7070/tflow:deps -o tflowdeps.tar
+docker save helba/tensorflowdockerexample:deps -o tflowdeps.tar
 
 #To load locally
-sudo docker load -i tflowdeps.tar
+docker load -i tflowdeps.tar

@@ -1,5 +1,5 @@
-#localhost:7070/tflow:dbiris
-FROM localhost:7070/tflow:deps
+#helba/tensorflowdockerexample:dbiris
+FROM helba/tensorflowdockerexample:deps
 CMD ["mkdir","/app/buildfiles"]
 COPY buildfiles/* /app/buildfiles/
 EXPOSE 3306

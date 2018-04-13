@@ -1,4 +1,4 @@
-#localhost:7070/tflow:base
+#helba/tensorflowdockerexample:base
 from ubuntu:xenial
 WORKDIR /app
 RUN apt update
